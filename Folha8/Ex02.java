@@ -66,8 +66,8 @@ class Ponto2D {
     double x = 0;
     double y = 0;
 
-    Ponto2D(double xx, double yy) {
-        x = xx;
-        y = yy;
+    Ponto2D(double _x, double _y) {
+        x = _x;
+        y = _y;
     }
 }
