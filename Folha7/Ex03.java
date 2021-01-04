@@ -6,7 +6,7 @@ public class Ex03 {
 
     public static void main(String[] args) throws FileNotFoundException {
         int seq[] = new int[50]; // sequencia
-        getSeq(seq);
+        //getSeq(seq);
         getAndExecOptionFunc(seq);   
     }
 
@@ -125,7 +125,7 @@ public class Ex03 {
         }
     }
 
-    public static void readFileSeq(int[] seq) throws FileNotFoundException {
+    public static void readFileSeq(int[] seq) throws FileNotFoundException { // Option: 7
         // pedir nome do ficheiro
         System.out.print("\nIntroduza o nome do ficheiro: ");
         String fileName = KB.next();
@@ -153,20 +153,22 @@ public class Ex03 {
         System.out.println("Valores lidos do ficheiro com sucesso!");
     }
 
-    public static void addNumbersSeq(int[] seq) {
+    public static void addNumbersSeq(int[] seq) { // Option: 8
+        KB.nextLine();
         // find first 0
         int index=0;
         for(index=0; index<seq.length ;index++) {
             if( seq[index]==0 ) break;
         }
-        for(int i=index; i<seq.length ;i++){
-            System.out.printf("Introduza o %dº número: ", i+1);
-            seq[i] = KB.nextInt();
-            if( seq[i]==0 ) break;
+        System.out.print("Introduza uma lista de numeros separados por virgulas: ");
+        String[] inputs = KB.next().split(",");
+        for(int i=index; i<index+inputs.length&&i<50 ;i++) {
+            seq[i] = Integer.parseInt(inputs[i-index]);
         }
+        System.out.println("Numeros lidos com sucesso!");
     }
 
-    public static void saveSeq(int[] seq) throws FileNotFoundException {
+    public static void saveSeq(int[] seq) throws FileNotFoundException { // Option: 9
         File fileOut = new File("outputNumbers.txt");
         PrintWriter pw = new PrintWriter(fileOut); 
 
