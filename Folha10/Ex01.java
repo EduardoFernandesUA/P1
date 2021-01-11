@@ -230,9 +230,14 @@ public class Ex01 {
     }
 
     public static void searchSeq(int[] seq) {
+        System.out.print("Valor a pesquisar: ");
+        int n = KB.nextInt();
         for(int i=0; i<seq.length ;i++) {
-            
+            if(seq[i]==n){
+                System.out.println("\nO número "+n+" encontra-se na posição "+i+".");
+            }
         }
+        System.out.println("Número inexistente na sequência.");
     }
 
     public static void endProg(){ // Option: 13
